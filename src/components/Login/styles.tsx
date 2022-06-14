@@ -11,34 +11,31 @@ export default StyleSheet.create({
     },
     text: {
         flex: 1,
+        paddingTop: 40,
         minHeight: 100,
         maxHeight: 100,
-        paddingTop: 40,
         fontSize: 60,
         fontStyle: 'italic',
         alignItems: 'center',
-        color: '#4180fc',
+        color: '#ec8337',
 
     },
     backgroundLogin: {
         flex: 1,
-        minHeight: 1000,
-        backgroundColor: '#caeef9',
+        minHeight: 400,
     },
     input: {
         width: 300,
         margin: 5,
-        backgroundColor: '#6bcebb',
-
+        color: '#fff',
+        placeholderTextColor: '#fff',
+        backgroundColor: '#454138',
     },
     submit: {
         width: 300,
         maxHeight: 100,
         margin: 5,
-
-        backgroundColor: '#4180fc',
-
-
-    }
+        backgroundColor: '#ec8337',
+    },
 
 });

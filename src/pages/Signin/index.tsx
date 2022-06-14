@@ -6,8 +6,9 @@ import Header from '../../components/Header';
 function Signin() {
     return(
         <View>
+             <Login/>
         <Header/>
-        <Login/>
+       
         </View>
         )
 }
