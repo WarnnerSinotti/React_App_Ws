@@ -1,43 +1,58 @@
 import * as React from 'react';
 import { KeyboardAvoidingView, View } from 'react-native';
-import { Title, TextInput, Button, Divider, Text } from 'react-native-paper';
-import { theme } from '../../core/theme';
+import { Title, TextInput, Button } from 'react-native-paper';
+import { themeInput } from '../../core/theme';
 
 import styles from './styles';
 
+const Acesso = async (Email: any, Password: any) => {
+
+    if(Email == 1 && Password == 1){
+        console.log("logado - Adicionar Navigate")
+    } else {
+        console.log('adicionar alerta')
+    }
+}
+
 function Login() {
+
+    const [Email, setEmail] = React.useState("");
+    const [Password, setPassword] = React.useState("");
+    const [Eyed, setEyed] = React.useState(true);
+
+  const VisualPassword = () => {
+    setEyed(current => !current)
+  }
+
     return (
         <KeyboardAvoidingView style={styles.backgroundLogin}>
             <View style={styles.container}>
                 <Title style={styles.text}> Login </Title>
                 <TextInput
-                    theme={theme}
+                    theme={themeInput}
                     style={styles.input}
                     label="Email"
-                    outlineColor={'#fff'}
                     selectionColor={'#fff'}
-                    placeholder='digite o email'
-                    placeholderTextColor={"#fff"}
-                    
+                    value={Email}
+                    onChangeText={Email => setEmail(Email)}
                 />
-                
+
                 <TextInput
-                    theme={theme}
+                    theme={themeInput}
                     style={styles.input}
                     label="Password"
-                    secureTextEntry
+                    secureTextEntry={Eyed}
                     selectionColor='#fff'
-                    placeholder='digite a senha'
-                    placeholderTextColor={"#fff"}
-                    
-                    right={<TextInput.Icon color={'#fff'} name="eye" />}
+                    right={<TextInput.Icon color={'#fff'} name="eye" onPress={VisualPassword} />}
+                    value={Password}
+                    onChangeText={Password => setPassword(Password)}
                 />
                 <Button
                     style={styles.submit}
-                    icon="login" mode="contained" onPress={() => console.log('Login click')}>
+                    icon="login" mode="contained" onPress={() => Acesso(Email, Password)}>
                     Login
                 </Button>
-               
+
             </View>
         </KeyboardAvoidingView>
 

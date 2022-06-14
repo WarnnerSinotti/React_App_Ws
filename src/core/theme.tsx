@@ -1,9 +1,12 @@
 import { DefaultTheme } from "react-native-paper";
 
-export const theme = {
+export const themeInput = {
     ...DefaultTheme,
     colors:{
         ...DefaultTheme.colors,
-        text: '#fff'
+        primary: "#999",
+        text: '#ffffff', //Texto do Input
+        placeholder: '#999',
+        
     }
 }
