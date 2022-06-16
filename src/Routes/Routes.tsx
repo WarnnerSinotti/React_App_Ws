@@ -1,22 +1,22 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import { Login } from '../pages/Index'
+import Index  from '../Pages/Login/index'
+import Menu from '../Pages/Menu';
+
+const Stack = createStackNavigator();
 
 export default function Routes(){
-  const Stack = createNativeStackNavigator();
+
   return (
+  
     <NavigationContainer>
-        <Stack.Navigator>
-            <Stack.Screen 
-                name='Login'
-                component={Login}
-                options={{
-                    headerShown: false
-                }}
-            />
-        </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator initialRouteName='Index'>
+      <Stack.Screen name="Index" component={Index} />
+      <Stack.Screen name="Menu" component={Menu} />
+    </Stack.Navigator>
+  </NavigationContainer>
+   
   )
 }

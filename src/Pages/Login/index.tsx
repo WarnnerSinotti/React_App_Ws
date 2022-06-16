@@ -1,19 +1,11 @@
 import * as React from 'react';
 import { View } from 'react-native';
 import Login from '../../components/Login';
-import Header from '../../components/Header';
 
-function Signin() {
+export default function Index() {
     return(
         <View>
-             <Login/>
-        <Header/>
-       
+            <Login /> 
         </View>
         )
 }
-
-
-
-
-export default Signin;
