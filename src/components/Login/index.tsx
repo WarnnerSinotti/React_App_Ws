@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { KeyboardAvoidingView, View, Image, StyleSheet, Alert} from 'react-native';
+import { KeyboardAvoidingView, View, Image, StyleSheet, Alert } from 'react-native';
 import { Title, TextInput, Button, IconButton, Text, Switch, Divider, Modal } from 'react-native-paper';
 import { themeInput } from '../../core/theme';
 import { useNavigation } from '@react-navigation/native';
@@ -34,50 +34,79 @@ export default function Login() {
     return (
         <KeyboardAvoidingView style={styles.backgroundLogin}>
             <View style={styles.container}>
-                <Title style={styles.text}> Login </Title>
-                <TextInput
-                    theme={themeInput}
-                    style={styles.input}
-                    label="Email"
-                    selectionColor={'#fff'}
-                    value={email}
-                    onChangeText={Email => setEmail(Email)}
-                />
+                <View>
+                    <Title style={styles.text}> Login </Title>
+                    <TextInput
+                        theme={themeInput}
+                        style={styles.input}
+                        label="Email"
+                        selectionColor={'#fff'}
+                        value={email}
+                        onChangeText={Email => setEmail(Email)}
+                    />
 
-                <TextInput
-                    theme={themeInput}
-                    style={styles.input}
-                    label="Password"
-                    secureTextEntry={eyed}
-                    selectionColor='#fff'
-                    right={<TextInput.Icon color={'#fff'} name="eye" onPress={VisualPassword} />}
-                    value={password}
-                    onChangeText={Password => setPassword(Password)}
-                />
-                <Button
-                    style={styles.submit}
-                    icon="login" mode="contained" onPress={() => Acesso(email, password, navigation)}>
-                    Login
-                </Button>
-                <Divider />
-                
-                <View style={styles.submit}>
-                <Button
-                    style={styles.cadastro}
-                    icon="menu" mode="contained" onPress={() => console.log('Cadastre')}>
-                    Cadastre-se
-                </Button>
-                <Text>Esqueceu Senha - Adicionar Modal</Text>
-                
+                    <TextInput
+                        theme={themeInput}
+                        style={styles.input}
+                        label="Password"
+                        secureTextEntry={eyed}
+                        selectionColor='#fff'
+                        right={<TextInput.Icon color={'#fff'} name="eye" onPress={VisualPassword} />}
+                        value={password}
+                        onChangeText={Password => setPassword(Password)}
+                    />
+                    <Button
+                        style={styles.submit}
+                        icon="login" mode="contained" onPress={() => Acesso(email, password, navigation)}>
+                        Login
+                    </Button>
+                    <View style={{ flexDirection: 'row', paddingTop: 15, alignSelf: 'flex-end' }}>
+                        <Text styles={styles.forget}>Esqueceu Senha - Adicionar Modal</Text>
+                    </View>
+
                 </View>
-
-                <Image
-                    style={styles.image}
-                    source={Logo}
-                />
-
-
+                <View style={styles.container1}>
+                <View style={{ flexDirection: 'row', paddingTop: 15 }}>
+                <Button
+                            style={styles.loginExterno}
+                            icon="menu" mode="contained" onPress={() => console.log('Integrar Google')}>
+                            GOOGLE
+                        </Button>
+                        <Button
+                            style={styles.loginExterno}
+                            icon="menu" mode="contained" onPress={() => console.log('Integrar Facebook')}>
+                            FACEBOOK
+                        </Button>
+                
+                       
+                </View>
+                </View>
+  
+                <View style={styles.container1}>
+                <View style={{ flexDirection: 'row', paddingTop: 15 }}>
+                    <Divider style={styles.divider} />
+                    <Text>  Ou  </Text>
+                    <Divider style={styles.divider} />
+                </View>
+                </View>
+                
+                <View style={styles.container1}>
+                <View style={{ flexDirection: 'row', paddingTop: 15 }}>
+                <Button
+                            style={styles.cadastro}
+                            icon="menu" mode="contained" onPress={() => console.log('Cadastre')}>
+                            Cadastre-se
+                        </Button>
+                </View>
+                </View>
+                <View>
+                    <Image
+                        style={styles.image}
+                        source={Logo}
+                    />
+                </View>
             </View>
+
         </KeyboardAvoidingView>
 
     )
@@ -85,13 +114,24 @@ export default function Login() {
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 50,
+        paddingTop: 2,
         flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
         alignContent: 'center',
 
     },
+    container1: {
+        paddingLeft: 40,
+        paddingEnd: 40,
+        flexDirection: 'column',
+        alignItems: 'center',
+        alignContent: 'center',
+    },
+    container2: {
+        flexDirection: "row",
+        alignSelf: 'flex-end',
+    },    
     text: {
         flex: 1,
         paddingTop: 40,
@@ -99,7 +139,10 @@ const styles = StyleSheet.create({
         maxHeight: 100,
         fontSize: 60,
         fontStyle: 'italic',
+        flexDirection: 'column',
         alignItems: 'center',
+        alignContent: 'center',
+        alignSelf: 'center',
         color: '#ec8337',
 
     },
@@ -111,7 +154,6 @@ const styles = StyleSheet.create({
         width: 300,
         margin: 5,
         color: '#fff',
-        placeholderTextColor: '#fff',
         backgroundColor: '#454138',
     },
     submit: {
@@ -121,14 +163,39 @@ const styles = StyleSheet.create({
         backgroundColor: '#ec8337',
     },
     image: {
-        width: 400,
-        height: 300
+        paddingTop: 50,
+        width: 200,
+        height: 200
     },
     cadastro: {
         width: 150,
         maxHeight: 100,
         margin: 5,
-        backgroundColor: '#999',
+        backgroundColor: '#ec8337',
+        alignItems: "center",
+        alignContent: 'flex-end',
+    },
+    loginExterno: {
+        width: 150,
+        maxHeight: 100,
+        margin: 5,
+        backgroundColor: '#051728',
+        alignItems: "center",
+        alignContent: 'flex-end',
+    },
+    divider: {
+        padding: 1, //Tirar depois
+        width: 100,
+        borderWidth: 1,
+        borderRadius: 15,
+        height: 2,
+        flex: 1,
+        alignSelf: 'center',
+        backgroundColor: '#454138',
+    },
+    forget: {
+        alignSelf: 'flex-end'
+
     },
 
 });
