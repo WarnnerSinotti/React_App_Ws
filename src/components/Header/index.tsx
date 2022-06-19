@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { KeyboardAvoidingView, View, StyleSheet } from 'react-native';
-import { Text } from 'react-native-paper';
-
-
-
+import { Button, Menu, Text, Appbar } from 'react-native-paper';
 
 export default function Header() {
 
+    const _handleMore = () => console.log('Shown more');
     return (
         <KeyboardAvoidingView >
-            <View style={styles.container}>
-                <Text style={styles.text}>Menu</Text>
-                
+            <View >
+                <Appbar.Header>
+                    <Appbar.Content title="PET" />
+                    <Appbar.Action icon="dots-vertical" onPress={_handleMore} />
+                </Appbar.Header>
             </View>
         </KeyboardAvoidingView>
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { KeyboardAvoidingView, View, Image, StyleSheet, Alert } from 'react-native';
-import { Title, TextInput, Button, IconButton, Text, Switch, Divider, Modal } from 'react-native-paper';
+import { Title, TextInput, Button, IconButton, Text, Provider, Switch, Modal, Portal, Divider } from 'react-native-paper';
 import { themeInput } from '../../core/theme';
 import { useNavigation } from '@react-navigation/native';
 
@@ -23,9 +23,15 @@ export default function Login() {
 
 
     const [email, setEmail] = React.useState("");
+    const [emailForget, setEmailForget] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [eyed, setEyed] = React.useState(true);
     const navigation = useNavigation();
+    const [visible, setVisible] = React.useState(false);
+
+    const showModal = () => setVisible(true);
+    const hideModal = () => setVisible(false);
+    const containerStyle = { backgroundColor: 'white', padding: 20, };
 
     const VisualPassword = () => {
         setEyed(current => !current)
@@ -44,7 +50,6 @@ export default function Login() {
                         value={email}
                         onChangeText={Email => setEmail(Email)}
                     />
-
                     <TextInput
                         theme={themeInput}
                         style={styles.input}
@@ -61,43 +66,37 @@ export default function Login() {
                         Login
                     </Button>
                     <View style={{ flexDirection: 'row', paddingTop: 15, alignSelf: 'flex-end' }}>
-                        <Text styles={styles.forget}>Esqueceu Senha - Adicionar Modal</Text>
+                        <Text styles={styles.forget} onPress={showModal}>Esqueceu Senha</Text>
                     </View>
-
                 </View>
                 <View style={styles.container1}>
-                <View style={{ flexDirection: 'row', paddingTop: 15 }}>
-                <Button
+                    <View style={{ flexDirection: 'row', paddingTop: 15 }}>
+                        <Button
                             style={styles.loginExterno}
-                            icon="menu" mode="contained" onPress={() => console.log('Integrar Google')}>
+                            icon="google" mode="contained" onPress={() => console.log('Integrar Google')}>
                             GOOGLE
                         </Button>
                         <Button
                             style={styles.loginExterno}
-                            icon="menu" mode="contained" onPress={() => console.log('Integrar Facebook')}>
-                            FACEBOOK
+                            icon="facebook" mode="contained" onPress={() => console.log('Integrar Facebook')}>
                         </Button>
-                
-                       
+                    </View>
                 </View>
-                </View>
-  
                 <View style={styles.container1}>
-                <View style={{ flexDirection: 'row', paddingTop: 15 }}>
-                    <Divider style={styles.divider} />
-                    <Text>  Ou  </Text>
-                    <Divider style={styles.divider} />
+                    <View style={{ flexDirection: 'row', paddingTop: 15 }}>
+                        <Divider style={styles.divider} />
+                        <Text>  Ou  </Text>
+                        <Divider style={styles.divider} />
+                    </View>
                 </View>
-                </View>
-                
                 <View style={styles.container1}>
-                <View style={{ flexDirection: 'row', paddingTop: 15 }}>
-                <Button
+                    <View style={{ flexDirection: 'row', paddingTop: 15 }}>
+                        <Button
                             style={styles.cadastro}
-                            icon="menu" mode="contained" onPress={() => console.log('Cadastre')}>
+                            icon="menu" mode="contained" onPress={() => console.log('Cadastro')}>
                             Cadastre-se
                         </Button>
-                </View>
+                    </View>
                 </View>
                 <View>
                     <Image
@@ -106,7 +105,26 @@ export default function Login() {
                     />
                 </View>
             </View>
-
+            <Provider>
+                <Portal>
+                    <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
+                        <Text>Esqueceu sua senha, não se preocupe, só digitar seu e-mail e enviar!</Text>
+                        <TextInput
+                            theme={themeInput}
+                            style={styles.input}
+                            label="Email"
+                            selectionColor={'#fff'}
+                            value={emailForget}
+                            onChangeText={EmailForget => setEmailForget(EmailForget)}
+                        />
+                        <Button
+                            style={styles.submit}
+                            icon="send" mode="contained" onPress={() => console.log('Disparar Email')}>
+                            Enviar
+                        </Button>
+                    </Modal>
+                </Portal>
+            </Provider>
         </KeyboardAvoidingView>
 
     )
@@ -131,7 +149,7 @@ const styles = StyleSheet.create({
     container2: {
         flexDirection: "row",
         alignSelf: 'flex-end',
-    },    
+    },
     text: {
         flex: 1,
         paddingTop: 40,
