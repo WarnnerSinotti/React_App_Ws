@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { KeyboardAvoidingView, View, Image, StyleSheet, Alert } from 'react-native';
-import { Title, TextInput, Button, IconButton, Text, Provider, Switch, Modal, Portal, Divider } from 'react-native-paper';
+import { Title, TextInput, Button, Text, Provider, Modal, Portal, Divider } from 'react-native-paper';
 import { themeInput } from '../../core/theme';
 import { useNavigation } from '@react-navigation/native';
 
@@ -79,6 +79,7 @@ export default function Login() {
                         <Button
                             style={styles.loginExterno}
                             icon="facebook" mode="contained" onPress={() => console.log('Integrar Facebook')}>
+                            FACEBOOK
                         </Button>
                     </View>
                 </View>
