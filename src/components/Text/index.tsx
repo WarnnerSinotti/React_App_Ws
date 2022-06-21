@@ -13,6 +13,9 @@ const styles = StyleSheet.create({
         width: '100%',
         margin: '1%',
         color: '#000',
+        alignContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center',
     }
 })
 

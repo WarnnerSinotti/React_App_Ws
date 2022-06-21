@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Modal, Portal, Text, Provider, Title, TextInput } from 'react-native-paper';
+import { Modal, Portal, Text, Provider, Title, TextInput, Divider } from 'react-native-paper';
 import { MyDivider } from '../../components/Divider';
-import { Container, GridTwo, RowContainer } from '../../components/Global';
+import { Container, DividerPixel, DividerPixelText, GridTree, GridTwo, RowContainer } from '../../components/Global';
 import { Logo } from '../../components/Image';
 import { MySubmit } from '../../components/Submit';
 import { MyText } from '../../components/Text';
@@ -41,11 +41,11 @@ export default function Index() {
         <Container>
             <Title > Login </Title>
             <RowContainer>
-                <MyTextInput label="Email" onChangeText={Email => setEmail(Email)} />
+                <MyTextInput label="Email" value={email} onChangeText={Email => setEmail(Email)} />
             </RowContainer>
             <RowContainer>
                 <MyTextInput label="Senha"
-                
+                    value={password}
                     secureTextEntry={eyed}
                     right={<TextInput.Icon name="eye" color={'#fff'} onPress={VisualPassword} />}
                     onChangeText={Password => setPassword(Password)} />
@@ -65,7 +65,15 @@ export default function Index() {
                 </GridTwo>
             </RowContainer>
             <RowContainer>
-                <MyDivider />
+                <DividerPixel>
+                    <MyDivider />
+                </DividerPixel>
+                <DividerPixelText>
+                <MyText>OU</MyText>
+                </DividerPixelText>
+                <DividerPixel>
+                    <MyDivider />
+                </DividerPixel>
             </RowContainer>
             <RowContainer>
                 <MySubmit icon="star" onPress={() => console.log('Cadastro')}>Cadastre-se</MySubmit>
@@ -75,13 +83,15 @@ export default function Index() {
                 <Logo source={require('../../../assets/pet.gif')} />
             </RowContainer>
 
+
+
             {/*MODAL DENTRO DE ESQUECEU SENHA*/}
             <Provider>
                 <Portal>
                     <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
                         <Text>RECUPERACAO DE SENHA</Text>
                         <RowContainer>
-                            <MyTextInput label="Email" onChangeText={emailForget => setEmail(emailForget)} />
+                            <MyTextInput label="Email" value={emailForget} onChangeText={emailForget => setEmail(emailForget)} />
                         </RowContainer>
                         <GridTwo>
                             <MySubmit icon="send" onPress={() => console.log('Enviar')}>Enviar</MySubmit>

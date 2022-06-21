@@ -17,3 +17,18 @@ export const GridTwo = styled.View`
   width: 50%;
   padding-horizontal: 10px;
 `;
+
+export const GridTree = styled.View`
+  width: 33.3%;
+  padding-horizontal: 10px;
+`;
+
+export const DividerPixelText = styled.View`
+  width: 12%;
+  padding-horizontal: 10px;
+`;
+
+export const DividerPixel = styled.View`
+  width: 44%;
+  padding-horizontal: 10px;
+`;
