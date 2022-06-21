@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Modal, Portal, Text, Provider, Title, TextInput, Divider } from 'react-native-paper';
 import { MyDivider } from '../../components/Divider';
-import { Container, DividerPixel, DividerPixelText, GridTree, GridTwo, RowContainer } from '../../components/Global';
+import { Container, DividerPixel, DividerPixelText, GridOne, GridTree, GridTwo, RowContainer } from '../../components/Global';
 import { Logo } from '../../components/Image';
 import { MySubmit } from '../../components/Submit';
 import { MyText } from '../../components/Text';
@@ -20,7 +20,7 @@ const Acesso = async (email: any, password: any, navigation: any) => {
     }
 }
 
-export default function Index() {
+export default function Index(props: any) {
 
     const [email, setEmail] = React.useState("");
     const [emailForget, setEmailForget] = React.useState("");
@@ -75,8 +75,13 @@ export default function Index() {
                     <MyDivider />
                 </DividerPixel>
             </RowContainer>
+            <RowContainer >
+                <GridOne>
+                <MyText >Acesse com seu favorito login social</MyText>
+                </GridOne>
+            </RowContainer>
             <RowContainer>
-                <MySubmit icon="star" onPress={() => console.log('Cadastro')}>Cadastre-se</MySubmit>
+                <MySubmit icon="star" onPress={() => props.navigation.navigate('Cadastro')}>Cadastre-se</MySubmit>
             </RowContainer>
 
             <RowContainer style={{ justifyContent: 'center' }}>
@@ -91,7 +96,7 @@ export default function Index() {
                     <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
                         <Text>RECUPERACAO DE SENHA</Text>
                         <RowContainer>
-                            <MyTextInput label="Email" value={emailForget} onChangeText={emailForget => setEmail(emailForget)} />
+                            <MyTextInput label="Email" value={emailForget} onChangeText={emailForget => setEmailForget(emailForget)} />
                         </RowContainer>
                         <GridTwo>
                             <MySubmit icon="send" onPress={() => console.log('Enviar')}>Enviar</MySubmit>
