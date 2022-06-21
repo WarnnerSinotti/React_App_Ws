@@ -12,3 +12,8 @@ export const RowContainer = styled.View`
   padding-horizontal: 10px;
   flex-direction: row;
 `;
+
+export const GridTwo = styled.View`
+  width: 50%;
+  padding-horizontal: 10px;
+`;
