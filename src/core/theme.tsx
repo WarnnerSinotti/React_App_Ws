@@ -28,5 +28,5 @@ export const theme = {
 export const tamanho = {
     login: 30,
     titulo: 22,
-    subTitulo: 18,
+    subTitulo: 15,
 }
