@@ -1,19 +1,14 @@
 import * as React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { Container, ContainerModal, Grid, Row } from '../../components/Global';
-import { Titulo } from '../../components/Text';
+import { MyText, Titulo } from '../../components/Text';
 import { MySubmit } from '../../components/Submit';
 import { MyTextInput } from '../../components/TextInput';
-import { TextInput } from 'react-native-paper';
+import { Text, TextInput } from 'react-native-paper';
 
 
 export default function Cadastro(props: any) {
 
-    const [nome, setNome] = React.useState("");
-    const [dataNascimento, setDataNascimento] = React.useState("");
-    const [email, setEmail] = React.useState("");
-    const [password, setPassword] = React.useState("");
-    const [confirmPassword, setConfirmPassword] = React.useState("");
     const [eyedOne, setEyedOne] = React.useState(true);
     const [eyedTwo, setEyedTwo] = React.useState(true);
 
@@ -28,7 +23,7 @@ export default function Cadastro(props: any) {
     const onSubmit = data => {
         props.navigation.navigate('Index')
         console.log(data);
-      };
+    };
 
     const { control, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
@@ -49,40 +44,77 @@ export default function Cadastro(props: any) {
                     </Row>
                     <ContainerModal>
                         <Row>
-                            <Controller control={control} render={({ field: { onChange, onBlur, name } }) => (
-                                <MyTextInput 
+                            <Controller control={control} render={({ field: { onChange, onBlur, value } }) => (
+                                <MyTextInput
                                     label="Nome"
-                                    value={name}
-                                    onChangeText={name => onChange(name)}
+                                    onChangeText={onChange}
+                                    onBlur={onBlur}
+                                    value={value}
+                                />  
                                 
-                                    nome={name}
-                                    />
                             )}
                                 name='nome'
+                                rules={{ required: true}}
+                            />
+                        </Row>
+                        <Text error='error'>{errors.email && "First name is required"}</Text>
+                        <Row>
+                            <Controller control={control} render={({ field: { onChange, onBlur, value } }) => (
+                                <MyTextInput
+                                    label="Data Nascimento"
+                                    placeholder="00/00/0000"
+                                    onChangeText={onChange}
+                                    onBlur={onBlur}
+                                    value={value}
+                                />
+                            )}
+                                name='dataNascimento'
                                 rules={{ required: true }}
                             />
                         </Row>
                         <Row>
-                            <MyTextInput label="Data Nascimento" value={dataNascimento} onChangeText={dataNascimento => setDataNascimento(dataNascimento)} />
+                            <Controller control={control} render={({ field: { onChange, onBlur, value } }) => (
+                                <MyTextInput
+                                    label="Email"
+                                    onChangeText={onChange}
+                                    onBlur={onBlur}
+                                    value={value}
+                                />
+                            )}
+                                name='email'
+                                rules={{ required: true }}
+                            />
                         </Row>
                         <Row>
-                            <MyTextInput label="Email" value={email} onChangeText={Email => setEmail(Email)} />
+                            <Controller control={control} render={({ field: { onChange, onBlur, value } }) => (
+                                <MyTextInput
+                                    label="Senha"
+                                    onChangeText={onChange}
+                                    onBlur={onBlur}
+                                    value={value}
+                                    secureTextEntry={eyedOne}
+                                    right={<TextInput.Icon name="eye" color={'#fff'} onPress={VisualPassword} />}
+                                />
+                            )}
+                                name='password'
+                                rules={{ required: true, /* maxLength: 10, */ }}
+                            />
                         </Row>
                         <Row>
-                            <MyTextInput label="Senha"
-                                value={password}
-                                secureTextEntry={eyedOne}
-                                right={<TextInput.Icon name="eye" color={'#fff'} onPress={VisualPassword} />}
-                                onChangeText={Password => setPassword(Password)} />
+                            <Controller control={control} render={({ field: { onChange, onBlur, value } }) => (
+                                <MyTextInput
+                                    label="Confirmar Senha"
+                                    onChangeText={onChange}
+                                    onBlur={onBlur}
+                                    value={value}
+                                    secureTextEntry={eyedTwo}
+                                    right={<TextInput.Icon name="eye" color={'#fff'} onPress={VisualConfirmPassword} />}
+                                />
+                            )}
+                                name='confirmPassword'
+                                rules={{ required: true, /* maxLength: 10, */ }}
+                            />
                         </Row>
-                        <Row>
-                            <MyTextInput label="Confirmar Senha"
-                                value={confirmPassword}
-                                secureTextEntry={eyedTwo}
-                                right={<TextInput.Icon name="eye" color={'#fff'} onPress={VisualConfirmPassword} />}
-                                onChangeText={confirmPassword => setConfirmPassword(confirmPassword)} />
-                        </Row>
-
                     </ContainerModal>
                     <Row>
                         <Grid>
@@ -91,8 +123,6 @@ export default function Cadastro(props: any) {
                     </Row>
                 </ContainerModal>
             </Row>
-
-
         </Container>
     )
 }
