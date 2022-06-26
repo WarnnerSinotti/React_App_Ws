@@ -1,13 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
-
-export const Logo: any = styled.Image`
-        padding: 100px;
-        width: 60%;
-        height: 60%;
-
-`;
+import { StyleSheet, Image } from 'react-native';
 
 
+export const Logo = (props: any) => {
+    return (
+        <Image style={styles.logo} {...props} />
+    )
+}
+
+const styles = StyleSheet.create({
+    logo: {
+        padding: 80,
+        width: 100,
+        height: 100,
+    },
+})
 
 

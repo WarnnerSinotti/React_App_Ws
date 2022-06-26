@@ -1,0 +1,7 @@
+cores
+
+cinza           - #958878
+claro           - #dcdcc4
+marrom          - #845639
+laranja claro   - #f49c5c
+laranja         - #f9843d

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { KeyboardAvoidingView, View, StyleSheet } from 'react-native';
-import { Button, Menu, Text, Appbar } from 'react-native-paper';
+import { Appbar } from 'react-native-paper';
 
 export default function Header() {
 

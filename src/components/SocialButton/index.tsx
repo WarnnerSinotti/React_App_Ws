@@ -3,19 +3,18 @@ import { Button } from 'react-native-paper';
 import React from 'react';
 import { theme } from '../../core/theme';
 
-export const MySubmit = (props: any) => {
+export const SocialButton = (props: any) => {
     return (
-        <Button style={styles.input} mode="contained" {...props} />
+        <Button style={styles.button} mode="contained" {...props} />
        
     )
 }
 
 const styles = StyleSheet.create({
-    input: {
+    button: {
         width: '100%',
         margin: '1%',
-        color: theme.colors,
-        backgroundColor: theme.colors.button,
+        backgroundColor: theme.colors.buttonSocial,
     }
 })
 

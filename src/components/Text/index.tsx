@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { Text } from 'react-native-paper';
 import React from 'react';
+import { tamanho, theme } from '../../core/theme';
 
 export const MyText = (props: any) => {
     return (
@@ -8,14 +9,42 @@ export const MyText = (props: any) => {
     )
 }
 
+export const TitleLogin = (props: any) => {
+    return (
+        <Text style={styles.textLogin} {...props} />
+    )
+}
+
+export const Titulo = (props: any) => {
+    return (
+        <Text style={styles.titulo} {...props} />
+    )
+}
+
+export const SubTitulo = (props: any) => {
+    return (
+        <Text style={styles.subTitulo} {...props} />
+    )
+}
+
 const styles = StyleSheet.create({
     text: {
-        width: '100%',
-        margin: '1%',
         color: '#000',
-        alignContent: 'center',
-        alignItems: 'center',
-        alignSelf: 'center',
+    },
+    textLogin: {
+        color: theme.colors.titulo,
+        fontSize: tamanho.login,
+        fontWeight: '900',
+    },
+    titulo: {
+        color: theme.colors.titulo,
+        fontSize: tamanho.titulo,
+        fontWeight: '900',
+    },
+    subTitulo: {
+        color: theme.colors.titulo,
+        fontSize: tamanho.subTitulo,
+        fontWeight: '900',
     }
 })
 

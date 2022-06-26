@@ -1,12 +1,32 @@
 import { DefaultTheme } from "react-native-paper";
 
-export const themeInput = {
+export const theme = {
     ...DefaultTheme,
-    colors:{
+    colors: {
         ...DefaultTheme.colors,
-        primary: "#999",
-        text: '#ffffff', //Texto do Input
-        placeholder: '#999',
-        
-    }
+        //TEXT - Texto
+        colorText: '#fff',
+        //button
+        button: "#f9843d",
+        buttonSocial: "#845639",
+        //Text Input
+        input: "#958878",
+        text: '#ffffff',
+        placeholder: '#845639',
+        //Text Titulo
+        titulo: "#845639",
+        //Text SubTitulo
+        subTitulo: "",
+        primary: "#845639",
+        background: "#ffffff",
+        //Modal
+        modal: '#dcdcc4',
+
+    },
+}
+
+export const tamanho = {
+    login: 30,
+    titulo: 22,
+    subTitulo: 18,
 }

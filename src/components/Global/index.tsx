@@ -1,47 +1,87 @@
-import styled from 'styled-components/native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { theme } from '../../core/theme';
 
-export const Container = styled.View`
-  flex: 1;
-  background-color: white;
-  align-items: center;
-  justify-content: center;
+export const Container = (props: any) => {
+    return (
+        <View style={styles.container} {...props} />
+    )
+}
 
-`;
+export const Row = (props: any) => {
+    return (
+        <View style={styles.row} {...props} />
+    )
+}
 
-export const RowContainer = styled.View`
-  width: 100%;
-  padding-horizontal: 10px;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-`;
+export const RowRight = (props: any) => {
+    return (
+        <View style={styles.rowRight} {...props} />
+    )
+}
 
-export const GridOne = styled.View`
-  padding:15px;
-  width: 70%;
-  flex-direction: column;
- 
+export const Grid = (props: any) => {
+    return (
+        <View style={styles.grid} {...props} />
+    )
+}
 
-`;
+export const DividerText = (props: any) => {
+    return (
+        <View style={styles.dividerText} {...props} />
+    )
+}
 
-export const GridTwo = styled.View`
-  padding: 10px; 
-  width: 50%;
-  padding-horizontal: 10px;
-`;
+export const DividerPixel = (props: any) => {
+    return (
+        <View style={styles.dividerPixel} {...props} />
+    )
+}
+export const ContainerModal = (props: any) => {
+    return (
+        <View style={styles.containerModal} {...props} />
+    )
+}
 
-export const GridTree = styled.View`
-  width: 33.3%;
-  padding-horizontal: 10px;
-`;
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    row: {
+        paddingHorizontal: 10,
+        width: '100%',
+        flexDirection: 'row',
+        //backgroundColor: "red",
+        justifyContent: 'center'
+    },
+    rowRight: {
+        paddingHorizontal: 10,
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'flex-end'
+    },
+    containerModal: {
+        paddingHorizontal: 10,
+        padding: 50,
+        backgroundColor: theme.colors.modal,
+        borderColor: '#999',
+        borderRadius: 15,
+    },
+    grid: {
+        padding: 5,
+        flexDirection: 'column',
+        justifyContent: 'center',
+    },
+    dividerText: {
+        width: 12,
+        paddingHorizontal: 10,
+    },
+    dividerPixel: {
 
-export const DividerPixelText = styled.View`
-  width: 12%;
-  padding-horizontal: 10px;
-`;
+        paddingHorizontal: 10,
+    }
+})
 
-export const DividerPixel = styled.View`
-  width: 44%;
-  padding-horizontal: 10px;
-`;

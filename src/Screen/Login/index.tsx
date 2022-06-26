@@ -1,23 +1,27 @@
 import * as React from 'react';
-import { Modal, Portal, Text, Provider, Title, TextInput, Divider } from 'react-native-paper';
+import { Modal, Portal, Provider, TextInput } from 'react-native-paper';
 import { MyDivider } from '../../components/Divider';
-import { Container, DividerPixel, DividerPixelText, GridOne, GridTree, GridTwo, RowContainer } from '../../components/Global';
+import { Container, ContainerModal, Grid, Row, RowRight } from '../../components/Global';
 import { Logo } from '../../components/Image';
 import { MySubmit } from '../../components/Submit';
-import { MyText } from '../../components/Text';
+import { MyText, SubTitulo, TitleLogin, Titulo } from '../../components/Text';
 import { MyTextInput } from '../../components/TextInput';
 import { useNavigation } from '@react-navigation/native';
+import { SocialButton } from '../../components/SocialButton';
+import { Alert } from 'react-native';
 
-const Acesso = async (email: any, password: any, navigation: any) => {
+const Acesso = async (email: any, password: any, navigation: any, setEmail, setPassword) => {
 
     if (email == 1 && password == 1) {
 
         navigation.navigate('Menu');
-
+        
         console.log("Acessou Menu")
     } else {
-        console.log('adicionar alerta')
+        Alert.alert('Usuário ou Senha Inválido');
     }
+    setEmail('');
+    setPassword('')
 }
 
 export default function Index(props: any) {
@@ -33,60 +37,72 @@ export default function Index(props: any) {
         setEyed(current => !current)
     }
 
+    const RecuperarSenha = () => {
+        Alert.alert('Enviado Recuperação de Senha em Seu E-mail');
+        console.log('Validar email antes de fechar')
+        hideModal()
+        setEmailForget('')
+    }
+
     const showModal = () => setVisible(true);
     const hideModal = () => setVisible(false);
     const containerStyle = { backgroundColor: 'white', padding: 20 };
 
     return (
         <Container>
-            <Title > Login </Title>
-            <RowContainer>
+            <TitleLogin > My Pet App </TitleLogin>
+            <Row>
                 <MyTextInput label="Email" value={email} onChangeText={Email => setEmail(Email)} />
-            </RowContainer>
-            <RowContainer>
+            </Row>
+            <Row>
                 <MyTextInput label="Senha"
                     value={password}
                     secureTextEntry={eyed}
                     right={<TextInput.Icon name="eye" color={'#fff'} onPress={VisualPassword} />}
                     onChangeText={Password => setPassword(Password)} />
-            </RowContainer>
-            <RowContainer>
-                <MySubmit icon="login" mode="contained" onPress={() => Acesso(email, password, navigation)}>Entrar</MySubmit>
-            </RowContainer>
-            <RowContainer >
-                <MyText onPress={showModal}>Esqueceu Senha?</MyText>
-            </RowContainer>
-            <RowContainer>
-                <GridTwo>
-                    <MySubmit icon="google" onPress={() => console.log('google')}>Google</MySubmit>
-                </GridTwo>
-                <GridTwo>
-                    <MySubmit icon="facebook" onPress={() => console.log('facebook')}>Facebbok</MySubmit>
-                </GridTwo>
-            </RowContainer>
-            <RowContainer>
-                <DividerPixel>
-                    <MyDivider />
-                </DividerPixel>
-                <DividerPixelText>
+            </Row>
+            <Row>
+                <MySubmit icon="login" mode="contained" onPress={() => Acesso(email, password, navigation, setEmail,setPassword)}>Entrar</MySubmit>
+            </Row>
+            <Row>
+                <RowRight>
+                    <MyText onPress={showModal}>Esqueceu Senha?</MyText>
+                </RowRight>
+            </Row>
+            <Row style={{padding: 20}}>
+                <Grid>
+                    <SubTitulo >Acesse com seu favorito login social</SubTitulo>
+                </Grid>
+            </Row>
+            <Row>
+                <Grid>
+                    <SocialButton icon="google" onPress={() => console.log('google')}>Google</SocialButton>
+                </Grid>
+                <Grid>
+                    <SocialButton icon="facebook" onPress={() => console.log('facebook')}>Facebbok</SocialButton>
+                </Grid>
+            </Row>
+            <Row >
+                <Grid>
+                <MyDivider />
+                </Grid>
+                <Grid>
                 <MyText>OU</MyText>
-                </DividerPixelText>
-                <DividerPixel>
-                    <MyDivider />
-                </DividerPixel>
-            </RowContainer>
-            <RowContainer >
-                <GridOne>
-                <MyText >Acesse com seu favorito login social</MyText>
-                </GridOne>
-            </RowContainer>
-            <RowContainer>
-                <MySubmit icon="star" onPress={() => props.navigation.navigate('Cadastro')}>Cadastre-se</MySubmit>
-            </RowContainer>
+                </Grid>
+                <Grid>
+                <MyDivider />
+                </Grid>
+                
+            </Row>
 
-            <RowContainer style={{ justifyContent: 'center' }}>
+            <Row>
+                <MySubmit icon="star" onPress={() => props.navigation.navigate('Cadastro')}>Cadastre-se</MySubmit>
+            </Row>
+
+            <Row style={{padding: 14}} >
                 <Logo source={require('../../../assets/pet.gif')} />
-            </RowContainer>
+            </Row>
+
 
 
 
@@ -94,13 +110,19 @@ export default function Index(props: any) {
             <Provider>
                 <Portal>
                     <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
-                        <Text>RECUPERACAO DE SENHA</Text>
-                        <RowContainer>
-                            <MyTextInput label="Email" value={emailForget} onChangeText={emailForget => setEmailForget(emailForget)} />
-                        </RowContainer>
-                        <GridTwo>
-                            <MySubmit icon="send" onPress={() => console.log('Enviar')}>Enviar</MySubmit>
-                        </GridTwo>
+                        <ContainerModal>
+                            <Row>
+                                <Titulo>Recuperação de Senha</Titulo>
+                            </Row>
+                            <Row>
+                                <MyTextInput label="Email" value={emailForget} onChangeText={emailForget => setEmailForget(emailForget)} />
+                            </Row>
+                            <Row>
+                                <Grid>
+                                    <MySubmit icon="send" onPress={() => RecuperarSenha()}>Enviar</MySubmit>
+                                </Grid>
+                            </Row>
+                        </ContainerModal>
                     </Modal>
                 </Portal>
             </Provider>

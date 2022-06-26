@@ -12,14 +12,10 @@ export const MyDivider = (props: any) => {
 
 const styles = StyleSheet.create({
     divider: {
-        marginTop: 10,
-        width: '100%',
-        borderWidth: 1,
-        borderRadius: 15,
+        borderWidth: 3,
+        borderRadius: 20,
         backgroundColor: '#454138',
-        alignContent: 'center',
-        alignItems: 'center',
-        alignSelf: 'center',
+
     }
 })
 
