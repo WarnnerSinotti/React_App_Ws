@@ -11,8 +11,8 @@ export const theme = {
         buttonSocial: "#845639",
         //Text Input
         input: "#958878",
-        text: '#ffffff',
-        placeholder: '#845639',
+        text: '#202020',
+        placeholder: '#e0e0e0',
         //Text Titulo
         titulo: "#845639",
         //Text SubTitulo
