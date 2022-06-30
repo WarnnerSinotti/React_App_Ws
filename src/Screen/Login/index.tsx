@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Modal, Portal, Provider, TextInput } from 'react-native-paper';
+import { IconButton, Modal, Portal, Provider, TextInput } from 'react-native-paper';
 import { MyDivider } from '../../components/Divider';
 import { Container, ContainerModal, Grid, Row, RowRight } from '../../components/Global';
 import { Logo } from '../../components/Image';
@@ -76,10 +76,13 @@ export default function Index(props: any) {
             </Row>
             <Row>
                 <Grid>
-                    <SocialButton icon="google" onPress={() => console.log('google')}>Google</SocialButton>
+                    <SocialButton icon="google" color={'white'} size={30} onPress={() => console.log('google')}>Google</SocialButton>
                 </Grid>
                 <Grid>
-                    <SocialButton icon="facebook" onPress={() => console.log('facebook')}>Facebbok</SocialButton>
+                    <SocialButton icon="facebook" color={'white'} size={30} onPress={() => console.log('facebook')}>Facebook</SocialButton>
+                </Grid>
+                <Grid>
+                <SocialButton icon="apple" color={'white'} size={30} onPress={() => console.log('Apple')}>Apple</SocialButton>
                 </Grid>
             </Row>
             <Row >

@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         width: '100%',
         margin: '1%',
         color: theme.colors.colorText,
-        backgroundColor: theme.colors.input,
+        backgroundColor: theme.colors.backdrop,
         top: 2,
     }
 })

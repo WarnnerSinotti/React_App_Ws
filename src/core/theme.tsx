@@ -5,13 +5,12 @@ export const theme = {
     colors: {
         ...DefaultTheme.colors,
         //TEXT - Texto
-        colorText: '#fff',
+        colorText: '#ffffff',
         //button
         button: "#f9843d",
         buttonSocial: "#845639",
         //Text Input
-        input: "#958878",
-        text: '#202020',
+        text: '#ffffff',
         placeholder: '#e0e0e0',
         //Text Titulo
         titulo: "#845639",
@@ -21,7 +20,8 @@ export const theme = {
         background: "#ffffff",
         //Modal
         modal: '#dcdcc4',
-
+        //IconButton
+        iconButtonColor: '#ffffff'
     },
 }
 
