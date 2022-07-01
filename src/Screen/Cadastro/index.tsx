@@ -7,22 +7,13 @@ import { MyTextInput } from '../../components/TextInput';
 import { HelperText, IconButton, TextInput } from 'react-native-paper';
 import { ScrollView } from 'react-native'
 import { theme } from '../../core/theme';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 
 
 export default function Cadastro(props: any) {
 
-    const [eyedOne, setEyedOne] = React.useState(true);
-    const [eyedTwo, setEyedTwo] = React.useState(true);
-
-
-    const VisualPassword = () => {
-        setEyedOne(current => !current)
-    }
-
-    const VisualConfirmPassword = () => {
-        setEyedTwo(current => !current)
-    }
 
     const onSubmit = data => {
         props.navigation.navigate('Index')
@@ -31,22 +22,31 @@ export default function Cadastro(props: any) {
 
     };
 
+    const schema = yup.object({
+        nome: yup
+            .string()
+            .required('Não pode conter campo campo')
+            .min(3, 'Nome não deve conter menos de 3 caracteres'),
+        email: yup
+            .string()
+            .required('Não pode conter campo campo')
+            .email('Digite um e-mail válido'),
+        password: yup
+            .string()
+            .required('Não pode conter campo campo')
+            .min(6, 'Senha deve conter pelo menos 6 Caracteres'),
+        confirmPassword: yup
+            .string()
+            .required('Não pode conter campo campo')
+            .min(6, 'Senha deve conter pelo menos 6 Caracteres')
+            .oneOf([yup.ref('password'), null], 'Senhas não conferem')
+
+    })
+
     const { control, handleSubmit, register, formState: { errors } } = useForm({
-        defaultValues: {
-            nome: '',
-            dataNascimento: '',
-            email: '',
-            password: '',
-            confirmPassword: '',
-        },
+        resolver: yupResolver(schema)
 
     });
-
-    const validadePassword = () => {
-
-        {/*adicionar validação */ }
-    }
-
 
     return (
 
@@ -61,11 +61,6 @@ export default function Cadastro(props: any) {
             </Row>
             {/* teste */}
             <ScrollView>
-                <Grid>
-           
-               
-                    
-                </Grid>
                 <Controller control={control} render={({ field: { onChange, onBlur, value, } }) => (
                     <Grid>
                         <MyTextInput
@@ -83,11 +78,6 @@ export default function Cadastro(props: any) {
 
                 )}
                     name='nome'
-                    rules={{
-                        required: { value: true, message: "Campo Obrigatório" },
-                        minLength: { value: 3, message: "Mínimo de 3 Caracteres" },
-                        maxLength: { value: 40, message: "Máximo de 40 Caracteres" },
-                    }}
                 />
                 {errors.nome &&
                     <Grid>
@@ -99,9 +89,10 @@ export default function Cadastro(props: any) {
                     <Grid>
                         <MyTextInput
                             label="Data Nascimento"
+                            keyboardType='numeric'
                             placeholder="00/00/0000"
                             mode='date'
-                            format="YYYY-MM-DD"
+                            format="DD-MM-YYYY"
                             onChangeText={onChange}
                             onBlur={onBlur}
                             value={value}
@@ -109,7 +100,7 @@ export default function Cadastro(props: any) {
                             minLength={8}
                             maxLength={8}
                         />
-                        
+
                     </Grid>
                 )}
                     name='dataNascimento'
