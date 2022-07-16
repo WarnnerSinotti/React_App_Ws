@@ -7,13 +7,12 @@ import { MyTextInput } from '../../components/TextInput';
 import { HelperText, IconButton, TextInput } from 'react-native-paper';
 import { ScrollView } from 'react-native'
 import { theme } from '../../core/theme';
-import * as yup from 'yup';
+import { schema } from '../../schema/schema'
 import { yupResolver } from '@hookform/resolvers/yup';
 
 
 
 export default function Cadastro(props: any) {
-
 
     const onSubmit = data => {
         props.navigation.navigate('Index')
@@ -21,27 +20,6 @@ export default function Cadastro(props: any) {
         console.log(data);
 
     };
-
-    const schema = yup.object({
-        nome: yup
-            .string()
-            .required('Não pode conter campo campo')
-            .min(3, 'Nome não deve conter menos de 3 caracteres'),
-        email: yup
-            .string()
-            .required('Não pode conter campo campo')
-            .email('Digite um e-mail válido'),
-        password: yup
-            .string()
-            .required('Não pode conter campo campo')
-            .min(6, 'Senha deve conter pelo menos 6 Caracteres'),
-        confirmPassword: yup
-            .string()
-            .required('Não pode conter campo campo')
-            .min(6, 'Senha deve conter pelo menos 6 Caracteres')
-            .oneOf([yup.ref('password'), null], 'Senhas não conferem')
-
-    })
 
     const { control, handleSubmit, register, formState: { errors } } = useForm({
         resolver: yupResolver(schema)

@@ -4,24 +4,34 @@ export const theme = {
     ...DefaultTheme,
     colors: {
         ...DefaultTheme.colors,
-        //TEXT - Texto
+        
+        //Text
         colorText: '#ffffff',
+        
         //button
         button: "#f9843d",
         buttonSocial: "#845639",
+        
         //Text Input
         text: '#ffffff',
         placeholder: '#e0e0e0',
+        
         //Text Titulo
         titulo: "#845639",
+        
         //Text SubTitulo
         subTitulo: "",
         primary: "#845639",
         background: "#ffffff",
+        
         //Modal
         modal: '#dcdcc4',
+        
         //IconButton
-        iconButtonColor: '#ffffff'
+        iconButtonColor: '#ffffff',
+
+        //Header
+        header: "#dcdcc4"
     },
 }
 
