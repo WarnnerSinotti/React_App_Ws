@@ -32,6 +32,8 @@ const styles = StyleSheet.create({
         color: '#000',
     },
     textLogin: {
+        paddingTop: 70,
+        paddingVertical: 20,
         color: theme.colors.titulo,
         fontSize: tamanho.login,
         fontWeight: '900',

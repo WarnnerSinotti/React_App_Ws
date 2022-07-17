@@ -31,7 +31,11 @@ export const theme = {
         iconButtonColor: '#ffffff',
 
         //Header
-        header: "#dcdcc4"
+        header: "#dcdcc4",
+
+        //Tab Navigator
+        tabNavigationBackground: "#dcdcc4",
+        tabNavigationButtonActive: '#f9843d'
     },
 }
 
