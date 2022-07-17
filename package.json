@@ -13,6 +13,7 @@
     "@hookform/error-message": "^2.0.0",
     "@hookform/resolvers": "^2.9.3",
     "@react-native-masked-view/masked-view": "0.2.6",
+    "@react-navigation/bottom-tabs": "^6.3.2",
     "@react-navigation/material-bottom-tabs": "^6.2.2",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.2",

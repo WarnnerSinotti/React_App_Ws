@@ -12,7 +12,7 @@ export const MyHeader = (...props: any) => {
   const _handleMore = () => console.log("Shown more");
 
   return (
-    <Appbar.Header style={styles.tamanho} {...props}>
+    <Appbar.Header style={styles.header} {...props}>
       <Appbar.Content title="MyPetWorld" />
       <Appbar.Action icon="dots-vertical" onPress={_handleMore} />
     </Appbar.Header>
@@ -20,7 +20,7 @@ export const MyHeader = (...props: any) => {
 };
 
 const styles = StyleSheet.create({
-  tamanho: {
+  header: {
     paddingHorizontal: 10,
     width: "100%",
     flexDirection: "row",
