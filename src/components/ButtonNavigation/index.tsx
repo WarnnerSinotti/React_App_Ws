@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BottomNavigation, Text } from 'react-native-paper';
+import { BottomNavigation, Text, IconButton } from 'react-native-paper';
 import { StyleSheet, View } from "react-native";
 import { theme } from "../../core/theme";
 
@@ -31,9 +31,9 @@ export function RecentsRoute(props: any) {
 export const MyButtonNavigation = (...props: any) => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'home', title: 'Home', focusedIcon: 'camera', unfocusedIcon: 'heart-outline'},
-    { key: 'albums', title: 'Albums', focusedIcon: 'album' },
-    { key: 'recents', title: 'Recents', focusedIcon: 'history' },
+    { key: 'home', title: 'Home', icon: 'camera', unfocusedIcon: 'heart-outline'},
+    { key: 'albums', title: 'Albums', icon: 'album' },
+    { key: 'recents', title: 'Recents', icon: 'history' },
   ]);
 
 
@@ -53,6 +53,7 @@ export const MyButtonNavigation = (...props: any) => {
       activeColor={theme.colors.tabNavigationButtonActive}
       inactiveColor={'gray'}
       barStyle={{backgroundColor: theme.colors.tabNavigationBackground}}
+      
     >
       <Text>warnner</Text>
       </BottomNavigation>
