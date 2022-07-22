@@ -2,11 +2,13 @@ import * as React from 'react';
 import { BottomNavigation, Text, IconButton } from 'react-native-paper';
 import { StyleSheet, View } from "react-native";
 import { theme } from "../../core/theme";
+import MyCard from '../Card';
 
 export function MusicRoute(props: any) {
   return (
     <View>
-      <Text>Texto01</Text>
+      <MyCard/>
+      <MyCard/>
     </View>
   );
 }
@@ -31,7 +33,7 @@ export function RecentsRoute(props: any) {
 export const MyButtonNavigation = (...props: any) => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'home', title: 'Home', icon: 'camera', unfocusedIcon: 'heart-outline'},
+    { key: 'home', title: 'Home', icon: 'home', },
     { key: 'albums', title: 'Albums', icon: 'album' },
     { key: 'recents', title: 'Recents', icon: 'history' },
   ]);
