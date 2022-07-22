@@ -3,13 +3,15 @@ import { BottomNavigation, Text, IconButton } from 'react-native-paper';
 import { StyleSheet, View } from "react-native";
 import { theme } from "../../core/theme";
 import MyCard from '../Card';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export function MusicRoute(props: any) {
   return (
+    <ScrollView>
     <View>
       <MyCard/>
-      <MyCard/>
     </View>
+    </ScrollView>
   );
 }
 
