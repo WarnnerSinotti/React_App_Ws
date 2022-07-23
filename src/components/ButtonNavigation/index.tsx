@@ -4,29 +4,32 @@ import { StyleSheet, View } from "react-native";
 import { theme } from "../../core/theme";
 import MyCard from '../Card';
 import { ScrollView } from 'react-native-gesture-handler';
+import { Row } from '../Global';
 
 export function MusicRoute(props: any) {
   return (
-    <ScrollView>
     <View>
-      <MyCard/>
+    <Text>Texto03</Text>
     </View>
-    </ScrollView>
   );
 }
 
 export function AlbumsRoute(props: any) {
   return (
+    <ScrollView style={styles.background}>
     <View>
-      <Text>Texto02</Text>
+      <Row>
+      <MyCard/>
+      </Row>
     </View>
+    </ScrollView>
   );
 }
 
 export function RecentsRoute(props: any) {
   return (
     <View>
-      <Text>Texto03</Text>
+    <Text>Texto03</Text>
     </View>
   );
 }
@@ -35,17 +38,16 @@ export function RecentsRoute(props: any) {
 export const MyButtonNavigation = (...props: any) => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'home', title: 'Home', icon: 'home', },
-    { key: 'albums', title: 'Albums', icon: 'album' },
-    { key: 'recents', title: 'Recents', icon: 'history' },
+    { key: 'home', title: 'Home', icon: 'paw', },
+    { key: 'info', title: 'Info', icon: 'cog' },
+    { key: 'localizacao', title: 'Localizacao', icon: 'map-marker-radius' },
   ]);
 
 
   const renderScene = BottomNavigation.SceneMap({
     home: MusicRoute,
-    albums: AlbumsRoute,
-    recents: RecentsRoute,
-
+    info: AlbumsRoute,
+    localizacao: RecentsRoute,
   });
 
   return (
@@ -59,7 +61,6 @@ export const MyButtonNavigation = (...props: any) => {
       barStyle={{backgroundColor: theme.colors.tabNavigationBackground}}
       
     >
-      <Text>warnner</Text>
       </BottomNavigation>
   );
   
@@ -70,4 +71,7 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
   },
+  background: {
+    backgroundColor: theme.colors.tabNavigationBackground
+  }
 });
