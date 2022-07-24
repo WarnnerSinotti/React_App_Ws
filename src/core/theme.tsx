@@ -1,5 +1,10 @@
 import { DefaultTheme } from "react-native-paper";
 
+const brownColor = "#845639"
+const whiteColor = "#ffffff"
+const orangeColor = "#f9843d"
+const creamColor = "#dcdcc4"
+
 export const theme = {
   ...DefaultTheme,
   version: 3,
@@ -7,36 +12,36 @@ export const theme = {
     ...DefaultTheme.colors,
 
     //Text
-    colorText: "#ffffff",
+    colorText: whiteColor,
 
     //button
-    button: "#f9843d",
-    buttonSocial: "#845639",
+    button: orangeColor,
+    buttonSocial: brownColor,
 
     //Text Input
-    text: "#ffffff",
-    placeholder: "#e0e0e0",
+    text: whiteColor,
+    placeholder: creamColor,
 
     //Text Titulo
-    titulo: "#845639",
+    titulo: brownColor,
 
     //Text SubTitulo
     subTitulo: "",
-    primary: "#845639",
-    background: "#ffffff",
+    primary: brownColor,
+    background: whiteColor,
 
     //Modal
-    modal: "#dcdcc4",
+    modal: creamColor,
 
     //IconButton
-    iconButtonColor: "#ffffff",
+    iconButtonColor: whiteColor,
 
     //Header
-    header: "#dcdcc4",
+    header: creamColor,
 
     //Tab Navigator
-    tabNavigationBackground: "#dcdcc4",
-    tabNavigationButtonActive: "#f9843d",
+    tabNavigationBackground: creamColor,
+    tabNavigationButtonActive: orangeColor,
   },
 };
 

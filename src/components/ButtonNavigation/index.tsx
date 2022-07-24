@@ -1,69 +1,65 @@
-import * as React from 'react';
-import { BottomNavigation, Text, IconButton } from 'react-native-paper';
+import * as React from "react";
+import { BottomNavigation, Text, Switch } from "react-native-paper";
 import { StyleSheet, View } from "react-native";
 import { theme } from "../../core/theme";
-import MyCard from '../Card';
-import { ScrollView } from 'react-native-gesture-handler';
-import { Row } from '../Global';
+import MyCard from "../Card";
+import { Row } from "../Global";
 
-export function MusicRoute(props: any) {
+export function MenuHome(props: any) {
   return (
     <View>
-    <Text>Texto03</Text>
+      <Text>Menu Home</Text>
+      <Switch value={theme.dark} />
     </View>
   );
 }
-
-export function AlbumsRoute(props: any) {
+//Imagens do Pet
+export function MenuInfo(props: any) {
   return (
-    <ScrollView style={styles.background}>
-    <View>
+    <View style={styles.background}>
       <Row>
-      <MyCard/>
+        <MyCard />
       </Row>
     </View>
-    </ScrollView>
   );
 }
 
-export function RecentsRoute(props: any) {
+//Localização do PET
+export function MenuLocalization(props: any) {
   return (
     <View>
-    <Text>Texto03</Text>
+      <Text>Localização</Text>
     </View>
   );
 }
-
 
 export const MyButtonNavigation = (...props: any) => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'home', title: 'Home', icon: 'paw', },
-    { key: 'info', title: 'Info', icon: 'cog' },
-    { key: 'localizacao', title: 'Localizacao', icon: 'map-marker-radius' },
+    { key: "menuHome", title: "Home", icon: "paw" },
+    { key: "menuInfo", title: "Info", icon: "cog" },
+    { key: "menuLocalization", title: "Localizacao", icon: "map-marker-radius",
+    },
   ]);
 
-
   const renderScene = BottomNavigation.SceneMap({
-    home: MusicRoute,
-    info: AlbumsRoute,
-    localizacao: RecentsRoute,
+    menuHome: MenuHome,
+    menuInfo: MenuInfo,
+    menuLocalization: MenuLocalization,
   });
 
   return (
     <BottomNavigation
-    style={styles.bottomNavigation} {...props}
-      navigationState={{ index, routes, }}
+      style={styles.bottomNavigation}
+      {...props}
+      navigationState={{ index, routes }}
       onIndexChange={setIndex}
       renderScene={renderScene}
       activeColor={theme.colors.tabNavigationButtonActive}
-      inactiveColor={'gray'}
-      barStyle={{backgroundColor: theme.colors.tabNavigationBackground}}
-      
-    >
-      </BottomNavigation>
+      inactiveColor={"gray"}
+      barStyle={{ backgroundColor: theme.colors.tabNavigationBackground }}
+    ></BottomNavigation>
   );
-  
 };
 
 const styles = StyleSheet.create({
@@ -72,6 +68,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   background: {
-    backgroundColor: theme.colors.tabNavigationBackground
-  }
+    backgroundColor: theme.colors.tabNavigationBackground,
+  },
 });

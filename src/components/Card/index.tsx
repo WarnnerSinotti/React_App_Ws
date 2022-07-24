@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderRadius: 20,
     paddingTop: 5,
-    backgroundColor: theme.colors.surface
+    backgroundColor: theme.colors.surface,
+    color: 'black'
   },
   image:{
     borderRadius: 15,
