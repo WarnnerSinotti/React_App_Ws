@@ -6,6 +6,8 @@ import MyCard from "../Card";
 import { Row } from "../Global";
 import MyMap from "../Map";
 
+
+
 export function MenuHome(props: any) {
   return (
     <View>
