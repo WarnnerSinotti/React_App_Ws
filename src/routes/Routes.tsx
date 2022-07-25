@@ -3,9 +3,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import Index from "../Screen/Login/index";
-import Menu from "../Screen/Menu";
-import Cadastro from "../Screen/Cadastro";
+import Index from "../screen/Login/index";
+import Menu from "../screen/Menu";
+import Cadastro from "../screen/Cadastro";
 
 const Stack = createStackNavigator();
 

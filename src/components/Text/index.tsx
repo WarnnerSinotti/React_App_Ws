@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { Text } from 'react-native-paper';
 import React from 'react';
-import { tamanho, theme } from '../../core/theme';
+import { theme } from '../../styles/theme';
 
 export const MyText = (props: any) => {
     return (
@@ -35,17 +35,17 @@ const styles = StyleSheet.create({
         paddingTop: 70,
         paddingVertical: 20,
         color: theme.colors.titulo,
-        fontSize: tamanho.login,
+        fontSize: theme.fontSizes.lg,
         fontWeight: '900',
     },
     titulo: {
         color: theme.colors.titulo,
-        fontSize: tamanho.titulo,
+        fontSize: theme.fontSizes.md,
         fontWeight: '900',
     },
     subTitulo: {
         color: theme.colors.titulo,
-        fontSize: tamanho.subTitulo,
+        fontSize: theme.fontSizes.sm,
         fontWeight: '900',
     }
 })

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { theme } from '../../core/theme';
+import { theme } from '../../styles/theme';
 
 export const Container = (props: any) => {
     return (

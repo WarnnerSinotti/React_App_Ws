@@ -1,15 +1,22 @@
 import * as React from "react";
-import { StyleSheet } from "react-native";
-import { Appbar } from "react-native-paper";
-import { theme } from "../../core/theme";
+import { StyleSheet, View } from "react-native";
+import { Appbar, Menu } from 'react-native-paper';
+import { theme } from "../../styles/theme";
+
+const MyComponent = () => (
+  <View style={{ flex: 1 }}>
+    <Menu.Item icon={'redo'} onPress={() => {}} title="Redo" />
+    <Menu.Item icon={'redo'} onPress={() => {}} title="Undo" />
+    <Menu.Item icon={'redo'} onPress={() => {}} title="Cut" disabled />
+    <Menu.Item icon={'redo'} onPress={() => {}} title="Copy" disabled />
+    <Menu.Item icon={'redo'} onPress={() => {}} title="Paste" />
+  </View>
+);
+
 
 export const MyHeader = (...props: any) => {
   
-  const _goBack = () => props.navigation.navigate("Index");
-
-  const _handleSearch = () => console.log("Searching");
-
-  const _handleMore = () => console.log("Shown more");
+  const _handleMore = () => {MyComponent()};
 
   return (
     <Appbar.Header style={styles.header} {...props}>

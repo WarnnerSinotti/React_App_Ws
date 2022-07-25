@@ -1,9 +1,10 @@
 import * as React from "react";
 import { BottomNavigation, Text, Switch } from "react-native-paper";
 import { StyleSheet, View } from "react-native";
-import { theme } from "../../core/theme";
+import { theme } from "../../styles/theme";
 import MyCard from "../Card";
 import { Row } from "../Global";
+import MyMap from "../Map";
 
 export function MenuHome(props: any) {
   return (
@@ -28,7 +29,7 @@ export function MenuInfo(props: any) {
 export function MenuLocalization(props: any) {
   return (
     <View>
-      <Text>Localização</Text>
+      <MyMap/>
     </View>
   );
 }

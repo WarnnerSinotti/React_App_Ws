@@ -1,7 +1,7 @@
 import * as React from "react";
 import { StyleSheet, FlatList } from "react-native";
 import { Card, Paragraph } from "react-native-paper";
-import { theme } from "../../core/theme";
+import { theme } from "../../styles/theme";
 import { Grid } from "../Global";
 
 const petList = [

@@ -1,12 +1,13 @@
-import { DefaultTheme } from "react-native-paper";
+import { DefaultTheme } from 'react-native-paper';
 
-const brownColor = "#845639"
-const whiteColor = "#ffffff"
-const orangeColor = "#f9843d"
-const creamColor = "#dcdcc4"
+const brownColor = "#845639";
+const whiteColor = "#ffffff";
+const orangeColor = "#f9843d";
+const creamColor = "#dcdcc4";
 
 export const theme = {
   ...DefaultTheme,
+  roundness: 2,
   version: 3,
   colors: {
     ...DefaultTheme.colors,
@@ -43,10 +44,14 @@ export const theme = {
     tabNavigationBackground: creamColor,
     tabNavigationButtonActive: orangeColor,
   },
-};
-
-export const tamanho = {
-  login: 30,
-  titulo: 22,
-  subTitulo: 15,
+  ThemeFonts: {
+    heading: "Roboto_700Bold",
+    body: "Roboto_400Regular",
+  },
+  fontSizes: {
+    xs: 12,
+    sm: 14,
+    md: 16,
+    lg: 20,
+  },
 };

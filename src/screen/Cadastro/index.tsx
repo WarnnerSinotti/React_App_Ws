@@ -6,7 +6,7 @@ import { MySubmit } from '../../components/Submit';
 import { MyTextInput } from '../../components/TextInput';
 import { HelperText, IconButton, TextInput } from 'react-native-paper';
 import { ScrollView } from 'react-native'
-import { theme } from '../../core/theme';
+import { theme } from '../../styles/theme';
 import { schema } from '../../schema/schema'
 import { yupResolver } from '@hookform/resolvers/yup';
 

@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { Button } from 'react-native-paper';
 import React from 'react';
-import { theme } from '../../core/theme';
+import { theme } from '../../styles/theme';
 
 export const MySubmit = (props: any) => {
     return (

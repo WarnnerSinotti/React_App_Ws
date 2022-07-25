@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import React from 'react';
 
-import { theme } from '../../core/theme';
+import { theme } from '../../styles/theme';
 
 export const MyTextInput = (props: any) => {
     return (
