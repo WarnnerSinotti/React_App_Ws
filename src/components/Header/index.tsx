@@ -1,19 +1,18 @@
 import * as React from "react";
-import { StyleSheet } from "react-native";
-import { Appbar } from 'react-native-paper';
+import { StyleSheet, View } from "react-native";
+import { Appbar } from "react-native-paper";
 import { theme } from "../../styles/theme";
 
-
 export const MyHeader = (...props: any) => {
-  
-  const _handleMore = () => {console.log('Inserir Função Menu')};
+  const Menu = () => {
+    console.log("test");
+  };
 
   return (
     <Appbar.Header style={styles.header} {...props}>
       <Appbar.Content title="MyPetWorld" />
-      <Appbar.Action icon="dots-vertical" onPress={_handleMore} />
+      <Appbar.Action icon="dots-vertical" onPress={Menu} />
     </Appbar.Header>
-   
   );
 };
 
