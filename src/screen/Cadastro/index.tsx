@@ -16,7 +16,12 @@ export default function Cadastro(props: any) {
 
     const onSubmit = data => {
         props.navigation.navigate('Index')
+        const Entrar = () => {
+  
 
+
+        };
+      
         console.log(data);
 
     };

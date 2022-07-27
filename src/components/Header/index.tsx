@@ -1,33 +1,16 @@
-import * as React from "react";
-import { StyleSheet, TouchableOpacity,  } from "react-native";
-import { Appbar, } from "react-native-paper";
+import React, { useEffect, useRef, useState } from "react";
+
+import { StyleSheet } from "react-native";
+import { Appbar } from "react-native-paper";
 import { theme } from "../../styles/theme";
-import { Modalize } from 'react-native-modalize';
-import { MyText } from "../Text";
-
-export const MyHeader = (...props: any) => {
-  
-  const modalizeRef = React.useRef<Modalize>(null);
-
-  const onOpen = () => {
-    modalizeRef.current?.open();
-    console.log('modalize')
-  };
 
 
+export const MyHeader = (props: any, warnner: any) => {
   return (
     <Appbar.Header style={styles.header} {...props}>
       <Appbar.Content title="MyPetWorld" />
-      <Appbar.Action icon="dots-vertical" onPress={onOpen} />
-
-
-      <Modalize ref={modalizeRef}>
-        <MyText>oi</MyText>
-      </Modalize>
-
+      <Appbar.Action icon="dots-vertical" onPress={() => console.log('teste')} />
     </Appbar.Header>
-
-    
   );
 };
 
