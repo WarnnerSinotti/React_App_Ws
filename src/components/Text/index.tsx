@@ -30,6 +30,7 @@ export const SubTitulo = (props: any) => {
 const styles = StyleSheet.create({
     text: {
         color: '#000',
+        
     },
     textLogin: {
         paddingTop: 70,
@@ -42,6 +43,7 @@ const styles = StyleSheet.create({
         color: theme.colors.titulo,
         fontSize: theme.fontSizes.md,
         fontWeight: '900',
+        
     },
     subTitulo: {
         color: theme.colors.titulo,

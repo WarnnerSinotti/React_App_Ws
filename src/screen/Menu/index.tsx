@@ -6,13 +6,13 @@ import { MyButtonNavigation } from '../../components/ButtonNavigation';
 import MyModal from '../../components/MyModal';
 
 
-export default function Menu() {
+export default function Menu(modal: any) {
 
   return (
     <Container>
       <MyHeader  />
       <MyButtonNavigation />
-      <MyModal />
+      <MyModal WarnnerProps/>
     </Container>
   );
 }

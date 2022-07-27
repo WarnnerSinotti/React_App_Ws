@@ -30,6 +30,7 @@ const MyCard = () => (
     data={petList}
     renderItem={cardList}
     keyExtractor={(item) => item.ID}
+    showsVerticalScrollIndicator={false}
   />
 );
 
