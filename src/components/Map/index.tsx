@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import MapView, { Marker, Callout } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Image, View, Dimensions } from 'react-native';
 import {
   requestForegroundPermissionsAsync,
   getCurrentPositionAsync,
 } from 'expo-location';
-import  Image  from 'react-native-paper';
 import { MyText } from '../Text';
 
-const icon = require('../../../assets/foto1.jpeg') 
+const icon = require('../../../assets/icon.png')
 
 export default function MyMap() {
   const [currentRegion, setCurrentRegion] = useState();
@@ -43,7 +42,7 @@ export default function MyMap() {
       <Marker
         coordinate={{ latitude: -22.3289895, longitude: -47.3827215 }}
       >
-        {/* <Image style={styles.avatar} source={{uri: icon}}/> */}
+        <Image style={styles.avatar} source={icon}/> 
         <Callout>
           <View>
             <MyText>
