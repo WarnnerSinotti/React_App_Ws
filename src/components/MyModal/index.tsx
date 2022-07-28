@@ -1,17 +1,17 @@
-import { useLinkProps } from '@react-navigation/native';
 import React from 'react';
-import { Modal, Text, Button } from 'react-native-paper';
+import { Modal, Text } from 'react-native-paper';
 
-const MyModal = (props: any, WarnnerProps) => {
-  const [visible, setVisible] = React.useState(false);
+type ModalProps = {
+  visible: boolean;
+  onDismiss: () => void;
+};
 
-  
+const MyModal = ({ visible, onDismiss }: ModalProps): JSX.Element => {
   return (
     <>
-      <Modal visible={visible} onDismiss={() => setVisible(false)}>
+      <Modal visible={visible} onDismiss={onDismiss}>
         <Text>Inserir as Listas do Modal</Text>
       </Modal>
-      <Button onPress={() => setVisible(true)}>Show</Button>
     </>
   );
 };

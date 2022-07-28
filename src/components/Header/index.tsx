@@ -1,23 +1,15 @@
+import { useLinkProps } from '@react-navigation/native';
 import React, { useEffect, useRef, useState } from 'react';
 
 import { StyleSheet } from 'react-native';
 import { Appbar } from 'react-native-paper';
 import { theme } from '../../styles/theme';
-import MyModal from '../MyModal';
 
-export const MyHeader = (props: any, WarnnerProps ) => {
-
-  const Clicar = () => {
-      return (
-        false
-      )
-  }
-
-  console.log(WarnnerProps)
+export const MyHeader = (props: any) => {
   return (
     <Appbar.Header style={styles.header} {...props}>
       <Appbar.Content title="MyPetWorld" />
-      <Appbar.Action icon="dots-vertical" onPress={() => Clicar} />
+      <Appbar.Action icon="dots-vertical" onPress={props.onMenuPress} />
     </Appbar.Header>
   );
 };
