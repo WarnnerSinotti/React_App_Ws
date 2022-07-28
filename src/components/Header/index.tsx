@@ -10,6 +10,7 @@ export const MyHeader = (props: any) => {
     <Appbar.Header style={styles.header} {...props}>
       <Appbar.Content title="MyPetWorld" />
       <Appbar.Action icon="dots-vertical" onPress={props.onMenuPress} />
+      {/* onMenuPress é o nome da props que criei para passar ao screen */}
     </Appbar.Header>
   );
 };

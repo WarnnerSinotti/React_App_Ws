@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Text } from 'react-native-paper';
+import { Modal, List } from 'react-native-paper';
 
 type ModalProps = {
   visible: boolean;
@@ -10,7 +10,17 @@ const MyModal = ({ visible, onDismiss }: ModalProps): JSX.Element => {
   return (
     <>
       <Modal visible={visible} onDismiss={onDismiss}>
-        <Text>Inserir as Listas do Modal</Text>
+        <List.Section>
+          <List.Subheader>Settings</List.Subheader>
+          <List.Item
+            title="First Item"
+            left={() => <List.Icon icon="folder" />}
+          />
+          <List.Item
+            title="Second Item"
+            left={() => <List.Icon color={'black'} icon="folder" />}
+          />
+        </List.Section>
       </Modal>
     </>
   );
