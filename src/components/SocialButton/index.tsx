@@ -1,6 +1,7 @@
+import React from 'react';
 import { StyleSheet } from 'react-native';
 import { IconButton } from 'react-native-paper';
-import React from 'react';
+
 import { theme } from '../../styles/theme';
 
 export const SocialButton = (props: any) => {
