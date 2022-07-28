@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Modal, List } from 'react-native-paper';
 import { theme } from '../../styles/theme';
 
@@ -14,7 +14,17 @@ const MyModal = (
 ): JSX.Element => {
   return (
     <>
+     
       <Modal visible={visible} onDismiss={onDismiss} >
+
+      <View style={{
+          flex: 1,
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center'}}>
+            <View style={{
+            width: 300,
+            height: 300}}>
         <List.Section>
           <List.Subheader style={styles.list} >
             Settings
@@ -35,6 +45,8 @@ const MyModal = (
             onPress={()=> console.log('Logout')}
           />
         </List.Section>
+        </View>
+        </View>
       </Modal>
     </>
   );

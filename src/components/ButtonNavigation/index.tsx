@@ -12,7 +12,6 @@ export function MenuHome(props: any) {
   return (
     <View>
       <Text>Menu Home</Text>
-      <Switch value={theme.dark} />
     </View>
   );
 }
