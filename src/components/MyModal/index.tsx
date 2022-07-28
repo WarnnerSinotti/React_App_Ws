@@ -14,7 +14,7 @@ const MyModal = (
 ): JSX.Element => {
   return (
     <>
-      <Modal visible={visible} onDismiss={onDismiss}>
+      <Modal visible={visible} onDismiss={onDismiss} >
         <List.Section>
           <List.Subheader style={styles.list} >
             Settings
